@@ -10,7 +10,7 @@ messageService = MessageService()
 def handle_message():
     message = request.json.get('message')
     result = messageService.process_message(message)
-    return result
+    return jsonify(result.dict())
 
 @app.route('/', methods=['GET'])
 def handle_get():
